@@ -1,6 +1,6 @@
 var http = require('http');
 
-function say_a(callback) {
+function naver(callback) {
     http.get({
         host: "naver.com"
     }, function (response) {
@@ -18,7 +18,7 @@ function daum(callback) {
 
 function prography(callback) {
     http.get({
-        host: "prography"
+        host: "prography.org"
     }, function (response) {
         callback("prography");
     })
