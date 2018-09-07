@@ -1,11 +1,11 @@
-(function() {
-	console.log(a);
-	var a = "var";
+(function () {
+    console.log(a);
+    var a = "var";
 })();
 
-(function() {
+(function () {
 // 	console.log(b);
-	const b = "const"
+    const b = "const"
 })();
 
 console.log(b);
