@@ -69,6 +69,6 @@ apt-get install -y nodejs
 
 # 참고 사이트
 
-[es6-features](http://es6-features.org/#Constants)
+[es6-features](http://es6-features.org/#Constants)<br/>
 [javascript 지원 현황](https://kangax.github.io/compat-table/es6/)
 
