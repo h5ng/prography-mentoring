@@ -66,3 +66,9 @@ apt-get install curl<br/>
 curl -sL https://deb.nodesource.com/setup_10.x | bash --<br/>
 apt-get install -y nodejs
 
+
+# 참고 사이트
+
+[es6-features](http://es6-features.org/#Constants)
+[javascript 지원 현황](https://kangax.github.io/compat-table/es6/)
+
