@@ -1,10 +1,8 @@
-# ecma script
-
 # nodejs 핵심 개념
 - 크롬 v8  엔진으로 빌드된 자바스크립트 런타임( 런타임 : 특정 언어로 만든 프로그램들을 실행할 수 있는 환경)
 - 이벤트기반
 - 논블로킹 I/O모델
-- npm -> 세계에서 가장 큰 오픈소스 라이브러리 생태께
+- npm -> 세계에서 가장 큰 오픈소스 라이브러리 생태계
 
 노드는 자바스크립트 application이 서버로서 기능하기 위한 도구 제공 
 
@@ -28,9 +26,9 @@ setTimeout(print(),5000);
 console.log("end");
 ```
 출력 결과 : 
-start
-end
-나는 좀 대기해
+start<br/>
+end<br/>
+나는 좀 대기해<br/>
 
 print() => 백그라운드에서 5초 후 태스크 큐에 쌓임
 
@@ -62,9 +60,9 @@ https://www.howtogeek.com/265900/everything-you-can-do-with-windows-10s-new-bash
 
 설치 이후
 
-apt-get update
-apt-get install -y build-essential
-apt-get install curl
-curl -sL https://deb.nodesource.com/setup_10.x | bash --
+apt-get update<br/>
+apt-get install -y build-essential<br/>
+apt-get install curl<br/>
+curl -sL https://deb.nodesource.com/setup_10.x | bash --<br/>
 apt-get install -y nodejs
 
