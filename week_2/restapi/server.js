@@ -1,6 +1,8 @@
 const express = require('express');
 
 const app = express();
+app.set('views', __dirname);
+app.set('view engine', 'pug');
 app.use(express.urlencoded({extended: false}));
 
 const cats = [
@@ -15,7 +17,7 @@ const cats = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('REST API');
+    res.render('index');
 });
 
 app.get('/cats', (req, res) => {
