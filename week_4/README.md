@@ -14,13 +14,14 @@
 
 
 
+
+
 ### Installing
 
-- Install from source
 
-  ```bash
-  $ tar 
-  ```
+
+
+
 
 
 
