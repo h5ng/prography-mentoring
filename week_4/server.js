@@ -1,20 +1,21 @@
+const mysql = require('mysql');
 const express = require('express');
 
+// express 설정
 const app = express();
 app.set('views', __dirname);
 app.set('view engine', 'pug');
 app.use(express.urlencoded({extended: false}));
 
-const cats = [
-    {
-        "name": "Node.js",
-        "age": 1
-    },
-    {
-        "name": "Python",
-        "age": 2
-    },
-];
+// mysql 설정
+const database = 'prography';
+const conn = mysql.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database,
+});
+conn.connect();
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -53,3 +54,8 @@ app.delete('/cat/:id', (req, res) => {
 app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
+
+process.on('exit', (code) => {
+    console.log(`About to exit with code: ${code}`);
+});
+
