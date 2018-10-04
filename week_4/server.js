@@ -22,7 +22,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/cats', (req, res) => {
-    res.json(cats);
+    const sql = 'SELECT * FROM cats;';
+    // TODO: 에러 코드 추가
+    conn.query(sql, (err, result) => {
+        res.json(result);
+    });
 });
 
 app.get('/cats/:id', (req, res) => {
