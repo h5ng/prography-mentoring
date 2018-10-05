@@ -23,36 +23,67 @@ app.get('/', (req, res) => {
 
 app.get('/cats', (req, res) => {
     const sql = 'SELECT * FROM cats;';
-    // TODO: 에러 코드 추가
+
     conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
         res.json(result);
     });
 });
 
 app.get('/cats/:id', (req, res) => {
     const id = req.params.id;
-    const cat = cats[id - 1];
-    res.json(cat);
+    const sql = `SELECT * FROM cats WHERE id = ${id}`
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.json(result);
+    });
 });
 
 app.post('/cat', (req, res) => {
     const data = req.body;
-    cats.push(data);
-    res.json(cats);
+    const sql = `INSERT INTO cats VALUES(NULL, '${data.name}', ${data.age});`;
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        res.json(result);
+    });
 });
 
 app.put('/cat/:id', (req, res) => {
     const id = req.params.id;
     const data = req.body;
+    const sql = `UPDATE cats SET name = '${data.name}', age = ${data.age} WHERE id = ${id}`;
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
 
-    cats[id - 1] = data;
-    res.json(cats);
+        res.json(result);
+    });
 });
 
 app.delete('/cat/:id', (req, res) => {
     const id = req.params.id;
-    cats.splice(id - 1, 1);
-    res.json(cats);
+    const sql = `DELETE FROM cats WHERE id = ${id};`;
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        res.json(result);
+    });
 });
 
 app.listen(3000, () => {
