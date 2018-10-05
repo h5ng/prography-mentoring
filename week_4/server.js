@@ -34,9 +34,10 @@ app.get('/cats', (req, res) => {
     });
 });
 
+
 app.get('/cats/:id', (req, res) => {
     const id = req.params.id;
-    const sql = `SELECT * FROM cats WHERE id = ${id}`
+    const sql = `SELECT * FROM cats WHERE id = ${id}`;
     conn.query(sql, (err, result) => {
         if (err) {
             console.error(err);
@@ -45,6 +46,7 @@ app.get('/cats/:id', (req, res) => {
         res.json(result);
     });
 });
+
 
 app.post('/cat', (req, res) => {
     const data = req.body;
@@ -86,11 +88,32 @@ app.delete('/cat/:id', (req, res) => {
     });
 });
 
+app.get('/sp/cats', (req, res) => {
+    const sql = 'CALL CATS()';
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        res.json(result);
+    });
+});
+
+
+app.get('/sp/cats/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = `CALL CATS_BY_ID(${id})`;
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        res.json(result);
+    });
+});
+
 app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
-
-process.on('exit', (code) => {
-    console.log(`About to exit with code: ${code}`);
-});
-
