@@ -15,7 +15,14 @@ const conn = mysql.createConnection({
     password: process.env.MYSQL_PASSWORD,
     database,
 });
-conn.connect();
+conn.connect(err => {
+    if (err) {
+        console.error(`error connecting: ${err.stack}`);
+        return;
+    }
+
+    console.log(`connected as id ${conn.threadId}`);
+});
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -29,7 +36,6 @@ app.get('/cats', (req, res) => {
             console.error(err);
             return;
         }
-
         res.json(result);
     });
 });
@@ -113,8 +119,8 @@ app.get('/sp/cats/:id', (req, res) => {
     });
 });
 
-// http://localhost:3000/inj?user=admin'; -- &password=
-// http://localhost:3000/inj?user=admin' union select @@version,1,1 -- &password=
+// [회원 정보 가져오기] http://localhost:3000/inj?user=admin'; -- &password=
+// [MySQL 정보 가져오기] http://localhost:3000/inj?user=admin' union select @@version,1,1 -- &password=
 app.get('/inj', (req, res) => {
     const user = req.query.user;
     const password = req.query.password;
@@ -135,4 +141,4 @@ app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
 
-// TODO: LODASH 또는 UNDERSCORE
+// TODO: postman
