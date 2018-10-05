@@ -100,7 +100,6 @@ app.get('/sp/cats', (req, res) => {
     });
 });
 
-
 app.get('/sp/cats/:id', (req, res) => {
     const id = req.params.id;
     const sql = `CALL CATS_BY_ID(${id})`;
