@@ -113,6 +113,26 @@ app.get('/sp/cats/:id', (req, res) => {
     });
 });
 
+// http://localhost:3000/inj?user=admin'; -- &password=
+// http://localhost:3000/inj?user=admin' union select @@version,1,1 -- &password=
+app.get('/inj', (req, res) => {
+    const user = req.query.user;
+    const password = req.query.password;
+    // const sql = `SELECT * FROM users WHERE user = '${user}' and password = '${password}';`; // escape 처리 X
+    const sql = `SELECT * FROM users WHERE user = ${mysql.escape(user)} and password = ${mysql.escape(password)};`;  // escape 처리 O
+    console.log(sql);
+    conn.query(sql, (err, result) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        res.json(result);
+    });
+});
+
 app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
+
+// TODO: LODASH 또는 UNDERSCORE
