@@ -5,7 +5,9 @@ const express = require('express');
 const app = express();
 app.set('views', __dirname);
 app.set('view engine', 'pug');
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({
+    extended: false
+}));
 
 // mysql 설정
 const database = 'prography';
@@ -125,7 +127,7 @@ app.get('/inj', (req, res) => {
     const user = req.query.user;
     const password = req.query.password;
     // const sql = `SELECT * FROM users WHERE user = '${user}' and password = '${password}';`; // escape 처리 X
-    const sql = `SELECT * FROM users WHERE user = ${mysql.escape(user)} and password = ${mysql.escape(password)};`;  // escape 처리 O
+    const sql = `SELECT * FROM users WHERE user = ${mysql.escape(user)} and password = ${mysql.escape(password)};`; // escape 처리 O
     console.log(sql);
     conn.query(sql, (err, result) => {
         if (err) {
@@ -140,5 +142,3 @@ app.get('/inj', (req, res) => {
 app.listen(3000, () => {
     console.log('app listening on port 3000!');
 });
-
-// TODO: postman
