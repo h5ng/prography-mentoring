@@ -2,7 +2,7 @@
 
 ### chrome network tab
 
-![network-tab]('./chrome-network.png')
+![network-tab](./chrome-network.png)
 
 - 크롤링을 하기 위해서는 여러가지 툴이 있다. fiddler , wireshark 등등
 - 크롬은 웹 http 패킷 디버깅을 할 수 있는 네트워크 탭을 제공한다
@@ -27,7 +27,7 @@
     - 예를 들어 method:POST라고 입력하면 HTTP METHOD가 POST인 패킷만 보이게 된다. (Keyword: value)
     - 필터중 XHR은 웹브라우저와 웹 서버간의 데이터 전송하는 객체를 보여준다.
 
-![XHR]('./XHR.png')
+![XHR](./XHR.png)
 
 - 패킷을 클릭하게 되면 Headers, Preview, Responsem Cookies, Timing 의 5개 탭이 보이게 된다
 - Headers 탭에는 패킷의 헤더정보와 response reqeust 헤더정보를 알 수 있고 송신한 정보까지 볼 수 있다.
@@ -43,7 +43,7 @@
 
 ### chrome source tab
 
-![source]('./chrome-source.png')
+![source](./chrome-source.png)
 
 - source tab에서는 문서를 직접 수정할 수 있음 ( 임시적으로)
 - break point를 걸어 js가 어떻게 작동되는지 확인 가능
