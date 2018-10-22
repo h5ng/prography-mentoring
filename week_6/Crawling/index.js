@@ -70,11 +70,11 @@ async function key(){
 	const keywordList = await getKeywordList();
 	//20개 너무많음 10위까지 뽑기
 	const relatedKeywordsList = _.slice(await getRelatedKeywordList(keywordList),0,10);
-	_.map(relatedKeywordsList, async (keyword) => {
+	_.map(relatedKeywordsList,  (keyword) => {
 	    console.log('-----------------');
 	    console.log(keyword.num +'위 : ' + keyword.text);
 	    console.log('연관 검색어 :');
-	    _.map(keyword.relatedKeywords, async (relatedKeyword) =>{
+	    _.map(keyword.relatedKeywords,  (relatedKeyword) =>{
 		console.log(relatedKeyword);
 	    });
 	    console.log('-----------------');
