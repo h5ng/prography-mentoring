@@ -49,17 +49,23 @@
 - 구현 자체가 쉽다
 - 핵심
     - sign 메소드
-    ```javascript
-    const jwt = require('jsonwebtoken')
-    let token = jwt.sign({foo:'bar'},'secret-key')
-    //jwt.sign(payload, secret-key, [options, callback]
-    ```
-    - payload
-    claim에 대한 정보에는 중요한 정보를 넣지 않는다. ( 암호화 x)
-    - secret-key
-    모듈을 import하는 방식으로 노출을 하지 않는다.
-    - 토큰에 대한 정보
-    유효시간
-    - 콜백함수
-    콜백함수를 쓰지 않으면 동기, 쓰면 비동기
+	```javascript
+	const jwt = require('jsonwebtoken')
+	let token = jwt.sign({foo:'bar'},'secret-key')
+	//jwt.sign(payload, secret-key, [options, callback]
+	```
+	- payload
+	claim에 대한 정보에는 중요한 정보를 넣지 않는다. ( 암호화 x)
+	- secret-key
+	모듈을 import하는 방식으로 노출을 하지 않는다.
+	- 토큰에 대한 정보
+	유효시간
+	- 콜백함수
+	콜백함수를 쓰지 않으면 동기, 쓰면 비동기
+    - verify 메소드
+	```javscript
+	const decode = jwt.verify(token, secret_key)
+	```	
+	- token을 풀어줌 , 미들웨어에서 사용하면 됨
 - 만든 token으로 [jwt debugger](http://jwt.io/) 들어가서 토큰 분석해보기
+
