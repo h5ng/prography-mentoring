@@ -60,8 +60,3 @@
 ### 참고 사이트
 
 - [실습](https://subicura.com/2018/02/14/javascript-debugging.html)
-
-
-### 네이버 실검, 연관검색어 뽑아보기
-crawling 폴더에 있음
-
